@@ -1,0 +1,198 @@
+GEM
+  remote: https://ruby.taobao.org/
+  specs:
+    activemodel (4.2.6)
+      activesupport (= 4.2.6)
+      builder (~> 3.1)
+    activerecord (4.2.6)
+      activemodel (= 4.2.6)
+      activesupport (= 4.2.6)
+      arel (~> 6.0)
+    activesupport (4.2.6)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    arel (6.0.3)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    bcrypt (3.1.11)
+    builder (3.2.2)
+    coderay (1.1.1)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    concurrent-ruby (1.0.1)
+    configatron (4.5.0)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
+    domain_name (0.5.20160309)
+      unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.11)
+    ffi (1.9.10)
+    formatador (0.2.5)
+    grape (0.15.0)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    grape-activerecord (2.0.0)
+      activerecord (~> 4.0)
+      grape (~> 0.1)
+      hashie-forbidden_attributes (~> 0.1.1)
+    grape-entity (0.4.8)
+      activesupport
+      multi_json (>= 1.3.2)
+    grape-swagger (0.10.4)
+      grape (>= 0.8.0)
+      grape-entity (< 0.5.0)
+    guard (2.13.0)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, <= 4.0)
+      lumberjack (~> 1.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-bundler (2.1.0)
+      bundler (~> 1.0)
+      guard (~> 2.2)
+      guard-compat (~> 1.1)
+    guard-compat (1.2.1)
+    guard-rack (2.1.1)
+      ffi
+      guard (~> 2.3)
+      spoon
+    hashie (3.4.3)
+    hashie-forbidden_attributes (0.1.1)
+      hashie (>= 3.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    i18n (0.7.0)
+    ice_nine (0.11.2)
+    json (1.8.3)
+    listen (3.0.6)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9.7)
+    lumberjack (1.0.10)
+    method_source (0.8.2)
+    mime-types (1.25.1)
+    minitest (5.8.4)
+    multi_json (1.11.2)
+    multi_xml (0.5.5)
+    mysql2 (0.3.20)
+    nenv (0.3.0)
+    netrc (0.11.0)
+    notiffany (0.0.8)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
+    oj (2.14.6)
+    passenger (5.0.26)
+      rack
+      rake (>= 0.8.1)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    qiniu (6.2.4)
+      json (~> 1.7)
+      mime-types (~> 1.19)
+      rest-client (~> 1.6)
+      ruby-hmac (~> 0.4)
+    qiniu-rs (3.4.10)
+      json (~> 1.7)
+      mime-types (~> 1.19)
+      rest-client (~> 1.6)
+      ruby-hmac (~> 0.4)
+    rack (1.6.4)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-cors (0.4.0)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (11.1.1)
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.7)
+      ffi (>= 0.5.0)
+    redis (3.2.2)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    ruby-hmac (0.4.0)
+    shellany (0.0.1)
+    slop (3.6.0)
+    spoon (0.0.4)
+      ffi
+    sucker_punch (2.0.1)
+      concurrent-ruby (~> 1.0.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord
+  bcrypt
+  configatron
+  grape
+  grape-activerecord
+  grape-entity
+  grape-swagger
+  guard
+  guard-bundler
+  guard-rack
+  mysql2 (~> 0.3.11)
+  oj
+  passenger
+  pry
+  qiniu (~> 6.2.1)
+  qiniu-rs
+  rack
+  rack-cors
+  rack-test
+  redis
+  redis-namespace
+  rest-client
+  rspec
+  sucker_punch
+
+BUNDLED WITH
+   1.11.2

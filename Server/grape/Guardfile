@@ -1,0 +1,10 @@
+guard 'bundler' do
+  watch('Gemfile')
+end
+
+guard 'rack' , :port => 9527do
+  watch('dispatch.rb')
+  watch('config.ru')
+  watch(%r{^(config|v1)/.*})
+  watch(%r{v1/restfuls/.*})
+end

@@ -1,0 +1,32 @@
+source 'https://ruby.taobao.org/'
+
+gem 'configatron', require: 'configatron/core'
+gem 'mysql2', "~>0.3.11"
+gem 'activerecord'
+gem 'grape-activerecord'
+gem 'bcrypt'
+gem 'sucker_punch'
+gem 'redis'
+gem 'redis-namespace'
+gem 'oj'
+gem 'pry'
+gem 'rest-client', require: 'rest_client'
+gem 'rack'
+gem 'rack-cors', require: 'rack/cors'
+gem 'grape'
+gem 'grape-entity'
+gem 'grape-swagger'
+gem 'passenger'
+gem 'qiniu', '~> 6.2.1'
+gem 'qiniu-rs'
+
+group :test do
+  gem "rack-test", require: "rack/test"
+  gem 'rspec'
+end
+
+group :guard do
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-rack"
+end

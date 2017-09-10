@@ -1,0 +1,8 @@
+<!--pages/taskList/taskList.wxml-->
+<!-- <text>pages/taskList/taskList.wxml</text> -->
+<view> 任务列表 </view>
+<view wx:if="{{taskList.length == 0}}"> 还没有任务 </view>
+<view wx:for="{{taskList}}">
+  <view>{{item}}</view>  <button data-index="{{index}}" bindtap="delTask">删除</button>
+</view>
+<button bindtap="applyTask">申请任务</button>

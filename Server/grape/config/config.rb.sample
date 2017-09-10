@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+
+OmniKnightConf = Configatron::RootStore.new
+OKC = OmniKnightConf
+
+# base config
+OKC.base do |base|
+  base.port = 9527
+  base.root = File.expand_path( File.dirname(__FILE__) ) + '/../'
+  base.env = :development
+
+  base.app_client do |client|
+    client.version = '2.0.0'
+    client.app_url = 'http://fir.im/dzh'
+    client.app_url_ios = 'http://fir.im/dzh'
+    client.app_url_android = 'http://fir.im/dzh'
+  end
+
+  base.partner_client do |client|
+    client.version = '1.0.0'
+    client.app_url = 'http://fir.im/dzh-partner'
+    client.app_url_ios = 'http://fir.im/dzh-partner'
+    client.app_url_android = 'http://fir.im/dzh-partner'
+  end
+end
+ENV['RACK_ENV'] = OKC.base.env.to_s
+
+# redis config
+OKC.redis do |redis|
+  redis.host = '127.0.0.1'
+  redis.port = 6379
+  redis.client = Redis.new(:host => redis.host, :port => redis.port, :timeout=> 30, :reconnect_attempts => 30)
+  redis.cookie = Redis::Namespace.new(:omniknight, :redis => redis.client)
+  redis.sms = Redis::Namespace.new(:omniknight_sms_verificarion, :redis => redis.client)
+end
+
+# 七牛云存储
+OKC.qiniu do |qn|
+  qn.ak = 'wO_svXlhzKyZ8cY78044Z7nsRgGmrIToXYR45Hxw'
+  qn.sk = 'f1x-iIshxKYWPYQwdarHXzGQp4f3eLw3t8ovxzJs'
+  qn.url = 'http://7xj13u.com1.z0.glb.clouddn.com/'
+  qn.bucket = 'omniknight'
+  qn.persistent_notify_url = "https://www.omniaccount.com:#{OKC.base.port}/audio_upload_cb"
+  qn.persistent_notify_url_from_phone = "https://www.omniaccount.com:#{OKC.base.port}/audio_upload_cb_from_phone"
+end # qiniu
+
+# ccprest
+OKC.ccprest do |ccprest|
+  # 请求地址
+  ccprest.host = 'https://sandboxapp.cloopen.com'
+  # 请求端口 
+  ccprest.port = '8883'
+  # 应用Id
+  ccprest.app_id = 'aaf98f894c7d3aca014c7d87fcbd006f'
+  # 帐号
+  ccprest.account_sid = 'aaf98f894c7d3aca014c7d879029006d'
+  # 帐号Token
+  ccprest.auth_token = '6e75a418951f41cfaf2643d788627d8f'
+  # REST版本号
+  ccprest.soft_version = '2013-12-26'
+  # sms_template 模板Id, 测试时必须为1
+  ccprest.sms_template = 1
+end
+
+# 支付-金运通
+OKC.payment_jyt do |pj|
+  # 测试环境
+  pj.merchant_id = 290060100001
+  pj.user = "juyuan@163.com"
+  pj.password = ""
+  pj.payment_url = "http://test1.jytpay.com:8080/JytCPService/tranCenter/encXmlReq.do"
+  pj.auth_url = "http://test1.jytpay.com:20080/JytAuth/tranCenter/authReq.do"
+  pj.key_folder = File.expand_path( File.dirname(__FILE__) )
+
+  #正式环境
+  # pj.merchant_id = 331060120001
+  # pj.user = "juyuan@163.com"
+  # pj.password = ""
+  # pj.payment_url = "https://www.jytpay.com:9010/JytCPService/tranCenter/encXmlReq.do"
+  # pj.auth_url = "https://www.jytpay.com:9210/JytAuth/tranCenter/authReq.do"
+  # pj.use_production_in_development = true
+  # pj.key_folder = File.expand_path( File.dirname(__FILE__) )
+end # OKC.payment_jyt do |pj|

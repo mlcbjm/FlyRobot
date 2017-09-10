@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+
+require 'rubygems'
+require 'bundler'
+require 'pry'
+
+Bundler.require(:default)
+
+require_relative '../config/config'
+require_relative '../../lib/logger_with_lineno'
+
+# require all models
+Dir[File.dirname(__FILE__)+"/../model/*.rb"].each{ |file|
+  l file
+  next if file.include? 'image.rb'
+  next if file.include? 'model.rb'
+  load file
+}
+#config
+
+include Omniknight::Model
+
+Grape::ActiveRecord.configure_from_file! 'config/database.yml'
+
+binding.pry

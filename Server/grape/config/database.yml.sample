@@ -1,0 +1,29 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: inspector_dev
+  pool: 5
+  username: inspector_dev
+  password: inspector_dev
+  host: 127.0.0.1
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: inspector_pro
+  pool: 5
+  username: inspector_pro
+  password: inspector_pro
+  host: 127.0.0.1
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  database: inspector_dev
+  pool: 5
+  username: inspector_dev
+  password: inspector_dev
+  host: 127.0.0.1

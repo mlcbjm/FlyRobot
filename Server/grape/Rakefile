@@ -1,0 +1,56 @@
+# coding: utf-8
+
+require 'rubygems'
+require 'bundler'
+require 'grape/activerecord/rake'
+
+Bundler.require(:default)
+
+require_relative 'config/config'
+
+@port = OKC.base.port
+@http_base_port = 10000 + OKC.base.port
+
+
+Grape::ActiveRecord.configure_from_file! 'config/database.yml'
+
+task :default do
+  if :development == OKC.base.env
+    # guard(for rack, but need guardfile, guard-passenger)
+    # grape-reload
+    # rerun
+    #Bundler.require(:guard) 
+    sh "bundle exec guard"
+  else
+    sh "passenger start -p #{OKC.base.port}"
+  end
+end
+
+task :test do
+  if :test != OKC.base.env
+    p "当前环境为：#{OKC.base.env}, 请修改 config/config.rb 坏境变量"
+  else
+    Bundler.require(:test)
+    sh 'rspec spec'
+  end
+end
+
+desc "初始化数据"
+task :db_init do
+  load "db/init.rb"
+end
+
+task :console do
+  load "script/console"
+end
+
+task :start_ssl do
+  sh "passenger start --port #{@http_base_port} --ssl-port #{@port} --ssl --ssl-certificate omniaccount_com.crt --ssl-certificate-key key.pem --daemonize"
+end
+
+task :stop_ssl  do
+  sh "passenger stop -p #{@http_base_port}"
+end
+
+task :restart_ssl => [:stop_ssl, :start_ssl] do
+end
