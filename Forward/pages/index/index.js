@@ -38,7 +38,7 @@ Page({
     })
   },
   test: function () {
-    app.func.req('/api/v1/signin', "{\"account\":{\"username\":111111,\"password\":111111}}", function (data) {
+    app.func.req('/api/v1/add_account', {"account":{"username":"yxx","password":"111111"}}, function (data) {
       if (data) {
         // wx.navigateTo({
         //   url: '../taskList/taskList?data=1,2,3'
